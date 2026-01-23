@@ -69,3 +69,15 @@ main {
 story-container{
    padding-top:120px;
 }
+
+.begin-link {
+    display: inline-block;
+    margin-top: 24px;
+    color: #9aa4ff;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.begin-link:hover {
+    text-decoration: underline;
+}
