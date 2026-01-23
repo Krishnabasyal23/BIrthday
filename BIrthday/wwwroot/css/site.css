@@ -66,3 +66,6 @@ main {
     line-height: 1.7;
     opacity: 0.85;
 }
+story-container{
+   padding-top:120px;
+}
