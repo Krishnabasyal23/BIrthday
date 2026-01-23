@@ -29,13 +29,19 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }*/
+:root {
+    --bg: #0f1220;
+    --text-main: #e7e7ee;
+    --text-muted:#b6b6c9;
+    --accent:#8f96ff;
+}
 
 body {
     margin: 0;
     padding: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: #0f1220;
-    color: #eaeaf0;
+    color: var(--text-main);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "segoe UI",sans-serif;
+    background-color: var(--bg);
 }
 
 main {
@@ -50,7 +56,7 @@ main {
     text-align: center;
 }
 .story-section {
-    max-width: 600px;
+    max-width: 540px;
     margin: 0 auto 120px auto;
     text-align: center;
     padding: 0 20px;
@@ -80,4 +86,21 @@ story-container{
 
 .begin-link:hover {
     text-decoration: underline;
+}
+h1 {
+    font-size: 2.3rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--text-muted);
 }
