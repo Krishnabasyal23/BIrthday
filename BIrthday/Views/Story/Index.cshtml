@@ -1,8 +1,8 @@
-﻿@{
+﻿@model List<BIrthday.Models.StoryChapter>
+
+ @{
     ViewData["Title"] = "Story";
 }
-
-@* <h1 style="color:red;">TEST — CAN YOU SEE ME</h1> *@
 
 <section class="story-section reveal ">
     <h1> A small Journey Begins</h1>
@@ -10,17 +10,12 @@
     <a href="#chapter-one" class="begin-link">Begin</a>
 
 </section>
-<section id="chapter-one" class=":story-section reveal">
-
-
-</section>
-
 <section class="story-section reveal">
     <h2> A quiet moment</h2>
     <p> 
         some stories dont start loudly,
         They start with curiosity, kindness, courage 
-        and boring day at ausu wait table
+        and boring day at student life wait table
     </p>
 </section>
 <section class=" story-section reveal">
@@ -31,3 +26,48 @@
         and flexing my coding muscles.
     </p>
 </section>   
+
+<section class="story-section reveal visible" id="book-chapter">
+    <h2 id="chapter-title"></h2>
+    <p id="chapter-body"></p>
+    <div style="margin-top:24px;">
+        <a href="#" id="prevBtn" class="begin-link" style="display:none;"> ⬅️Go back </a>
+        <a href="#" id="nextBtn" class="begin-link"> Turn the page ➡️</a>
+    </div>
+
+</section>
+<script>
+    document.addEventListener("DOMContentLoaded", () =>{
+    const chapters= @Html.Raw(
+        System.Text.Json.JsonSerializer.Serialize(Model)
+    );
+    let index=0;
+    const titleE1=document.getElementById("chapter-title");
+    const bodyE1=document.getElementById("chapter-body");
+    const nextBtn=document.getElementById("nextBtn");
+    const prevBtn=document.getElementById("prevBtn");
+
+    function renderChapter(){
+        titleE1.textContent= chapters[index].Title;
+        bodyE1.textContent=chapters[index].Body;
+        prevBtn.style.display=index>0?"inline-block": "none";
+        nextBtn.style.display = index < chapters.length - 1 ? "inline-block" : "none";
+    }
+    nextBtn.onclick = e=>{
+        e.preventDefault();
+        if (index<chapters.length -1){
+            index++;
+            renderChapter();
+        }
+    };
+     prevBtn.onclick = (e) => {
+        e.preventDefault();
+        if (index > 0) {
+            index--;
+            renderChapter();
+        }
+    };
+        renderChapter();
+
+    });
+</script>

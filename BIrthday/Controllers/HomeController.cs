@@ -8,6 +8,8 @@ namespace BIrthday.Controllers
     {
         public IActionResult Index()
         {
+            
+            
             return View();
         }
 
