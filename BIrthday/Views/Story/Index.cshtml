@@ -7,7 +7,7 @@
 <section class="story-section reveal ">
     <h1> A small Journey Begins</h1>
     <p> This was made just for you ( also for my learning purposes 🥹🥹)</p>
-    <a href="#chapter-one" class="begin-link">Begin</a>
+    <a href="#" id="beginBook" class="begin-link">Begin</a>
 
 </section>
 <section class="story-section reveal">
@@ -27,7 +27,7 @@
     </p>
 </section>   
 
-<section class="story-section reveal visible" id="book-chapter">
+<section class="story-section" id="book-chapter" style="display:none;">
     <h2 id="chapter-title"></h2>
     <p id="chapter-body"></p>
     <div style="margin-top:24px;">
@@ -46,10 +46,13 @@
     const bodyE1=document.getElementById("chapter-body");
     const nextBtn=document.getElementById("nextBtn");
     const prevBtn=document.getElementById("prevBtn");
+    const beginbtn = document.getElementById("beginBook");
+    const introSections= document.querySelectorAll(".story-section");
+    const bookSection=document.getElementById("book-chapter");
 
     function renderChapter(){
         titleE1.textContent= chapters[index].Title;
-        bodyE1.textContent=chapters[index].Body;
+        bodyE1.innerHTML = chapters[index].Body.replace(/\n/g, "<br><br>");
         prevBtn.style.display=index>0?"inline-block": "none";
         nextBtn.style.display = index < chapters.length - 1 ? "inline-block" : "none";
     }
@@ -67,7 +70,15 @@
             renderChapter();
         }
     };
+    beginbtn.onclick = (e) => {
+        e.preventDefault();
+        // hide intro sections
+        introSections.forEach(s => s.style.display = "none");
+        bookSection.style.display = "block";
         renderChapter();
+    };
+    
+    renderChapter();
 
     });
 </script>
