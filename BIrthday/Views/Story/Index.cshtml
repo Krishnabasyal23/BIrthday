@@ -76,11 +76,11 @@
     prevBtn.onclick = e=>{
             e.preventDefault();
             if (index>0){
-               page.classList.add("flip");
+               page.classList.add("flip-back");
                setTimeout(()=>{
                 index--;
                 renderChapter();
-                page.classList.remove("flip");
+                page.classList.remove("flip-back");
                },600);
             }
         };

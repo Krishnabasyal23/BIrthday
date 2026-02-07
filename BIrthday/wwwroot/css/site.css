@@ -101,3 +101,6 @@ p {
 .page.flip{
     transform: rotateY(-120deg);
 }
+.page.flip-back{
+    transform:rootateY(120deg);  
+}
