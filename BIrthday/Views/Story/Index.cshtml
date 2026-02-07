@@ -4,11 +4,12 @@
     ViewData["Title"] = "Story";
 }
 
-@* <section class="story-section reveal ">
+ <section class="story-section reveal ">
     <h1> A small Journey Begins</h1>
     <p> This was made just for you ( also for my learning purposes 🥹🥹)</p>
-    <a href="#" id="beginBook" class="begin-link">Begin</a>
+    <a href="#" id="beginBook" class="begin-link">Begin</a> 
 
+   @*
 </section>
 <section class="story-section reveal">
     <h2> A quiet moment</h2>
@@ -38,8 +39,8 @@
     </div>
         </div>
     </div>  
-
-</section>
+    <audio id="technoAudio" src="/audio/technoblade-birthday.mp3"></audio>
+    </section>
 <script>
     document.addEventListener("DOMContentLoaded", () =>{
     const chapters= @Html.Raw(
@@ -50,9 +51,10 @@
     const bodyE1=document.getElementById("chapter-body");
     const nextBtn=document.getElementById("nextBtn");
     const prevBtn=document.getElementById("prevBtn");
-    const beginbtn = document.getElementById("beginBook");
-    const introSections= document.querySelectorAll(".story-section:not(#book-chapter)");
+    // const beginbtn = document.getElementById("beginBook");
+    // const introSections= document.querySelectorAll(".story-section:not(#book-chapter)");
     const bookSection=document.getElementById("book-chapter");
+    const page=document.querySelector(".page");
 
     function renderChapter(){
         titleE1.textContent= chapters[index].Title;
@@ -63,28 +65,35 @@
     nextBtn.onclick = e=>{
         e.preventDefault();
         if (index<chapters.length -1){
+           page.classList.add("flip");
+           setTimeout(()=>{
             index++;
             renderChapter();
+            page.classList.remove("flip");
+           },600); 
         }
     };
-     prevBtn.onclick = (e) => {
-        e.preventDefault();
-        if (index > 0) {
-            index--;
-            renderChapter();
-        }
-    };
-    beginbtn.onclick = (e) => {
-        e.preventDefault();
-        // hide intro sections
-        introSections.forEach(s => s.style.display = "none");
-        bookSection.style.display = "block";
-        renderChapter();
-    };
+    prevBtn.onclick = e=>{
+            e.preventDefault();
+            if (index>0){
+               page.classList.add("flip-back");
+               setTimeout(()=>{
+                index--;
+                renderChapter();
+                page.classList.remove("flip-back");
+               },600);
+            }
+        };
+    // beginbtn.onclick = (e) => {
+    //     e.preventDefault();
+    //     hide intro sections
+    //     introSections.forEach(s => s.style.display = "none");
+    //     bookSection.style.display = "block";
+    //     renderChapter();
+    // };
     
-    renderChapter(
-        bookSection.scrollIntoview({behaviour:"smooth", block: "center"});
-    );
+    renderChapter();
+      bookSection.scrollIntoView({behavior:"smooth", block: "center"});
 
     });
 </script>

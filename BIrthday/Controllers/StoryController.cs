@@ -39,10 +39,22 @@ namespace BIrthday.Controllers
                  },
                 new StoryChapter
                 {
-                    Id=3,
+                    Id=4,
                     Title="And today...",
                     Body=" This chapter is yours."
-                }
+                },
+
+                 new StoryChapter
+                 {
+                     Id=99,
+                     Title="Some heros never log out",
+                     Mood="tribute",
+                     Body="Not all kings wear crowns, but this one did \n"+
+                     "Some carry kindness, humor, and quiet strength. \n\n"+
+                     " and the coolest part about us, we both believe in the BLOOD FOR THE BLOOD GOD"+
+                     "Technoblade never dies.." 
+                    
+                 },
 
             };
 
