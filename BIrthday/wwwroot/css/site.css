@@ -43,6 +43,8 @@ main {
 }
 .story-container{
    padding-top:120px;
+   position: relative;
+   z-index:2;
 }
 
 .begin-link {
@@ -88,8 +90,26 @@ p {
     max-width: 560px;
     margin: 0 auto;*/
     perspective: 1200px;
+    position:relative;
 }
 
+    .book::before {
+        content: "";
+        position: absolute;
+        inset: -20px;
+        background: radial-gradient( ellipse at center, rgba(143,150,255,0.08), transparent 60% );
+        z-index: -1;
+        filter: blur(20px);
+    }
+
+    @keyframes idleFloat{
+                0% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0); }
+    
+    }
+
+}
 .page {
     background: rgba(255,255,255,0.03);
     border-radius: 12px;
@@ -103,4 +123,15 @@ p {
 }
 .page.flip-back{
     transform:rootateY(120deg);  
+}
+
+.no-float{
+    animation:none !important;
+}
+#ambientCanvas{
+    position:fixed;
+    iniset::0;
+    z-index:-1;
+    pointer-events:none;
+    opacity:0.6;
 }

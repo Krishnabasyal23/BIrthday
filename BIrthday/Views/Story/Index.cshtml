@@ -4,10 +4,10 @@
     ViewData["Title"] = "Story";
 }
 
- <section class="story-section reveal ">
+ @* <section class="story-section reveal ">
     <h1> A small Journey Begins</h1>
     <p> This was made just for you ( also for my learning purposes 🥹🥹)</p>
-    <a href="#" id="beginBook" class="begin-link">Begin</a> 
+    <a href="#" id="beginBook" class="begin-link">Begin</a>  *@
 
    @*
 </section>
@@ -27,6 +27,8 @@
         and flexing my coding muscles.
     </p>
 </section>    *@
+
+
 
 <section id="book-chapter">
     <div class="book">
@@ -65,11 +67,11 @@
     nextBtn.onclick = e=>{
         e.preventDefault();
         if (index<chapters.length -1){
-           page.classList.add("flip");
+           page.classList.add("no-flip");
            setTimeout(()=>{
             index++;
             renderChapter();
-            page.classList.remove("flip");
+            page.classList.remove("no-flip");
            },600); 
         }
     };
