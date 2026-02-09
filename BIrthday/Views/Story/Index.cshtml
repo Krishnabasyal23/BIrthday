@@ -33,17 +33,20 @@
 <section id="book-chapter">
     <div class="book">
         <div class="page">
-    <h2 id="chapter-title"></h2>
-    <p id="chapter-body"></p>
-    <div style="margin-top:24px;">
-        <a href="#" id="prevBtn" class="begin-link" style="display:none;"> ⬅️Go back </a>
-        <a href="#" id="nextBtn" class="begin-link"> Turn the page ➡️</a>
-    </div>
+            <h2 id="chapter-title" aria-live="polite"></h2>
+            <p id="chapter-body" aria-live="polite"></p>
+            <div style="margin-top:24px;">
+                <a href="#" id="prevBtn" class="begin-link" style="display:none;">⬅️ Go back</a>
+                <a href="#" id="nextBtn" class="begin-link">Turn the page ➡️</a>
+            </div>
         </div>
-    </div>  
+        <div class="book-shadow"></div>
+    </div>
     <audio id="technoAudio" src="/audio/technoblade-birthday.mp3"></audio>
-    </section>
+</section>
+
 <script>
+
     document.addEventListener("DOMContentLoaded", () =>{
     const chapters= @Html.Raw(
         System.Text.Json.JsonSerializer.Serialize(Model)
@@ -56,36 +59,67 @@
     // const beginbtn = document.getElementById("beginBook");
     // const introSections= document.querySelectorAll(".story-section:not(#book-chapter)");
     const bookSection=document.getElementById("book-chapter");
+    const shadow = document.querySelector(".book-shadow");
+
     const page=document.querySelector(".page");
 
     function renderChapter(){
+        const chapter = chapters[index];
+
         titleE1.textContent= chapters[index].Title;
         bodyE1.innerHTML = chapters[index].Body.replace(/\n/g, "<br><br>");
-        prevBtn.style.display=index>0?"inline-block": "none";
+
+        const isFirst=index==0;
+        const isLast=chapter.isFinal || index=== chapters.length-1;
+
+        prevBtn.style.display=isFirst? "none": "inline-block";
         nextBtn.style.display = index < chapters.length - 1 ? "inline-block" : "none";
+
+        if(isLast){
+            nextBtn.textContent= "Play the surprise ✨";
+        }else{
+            nextBtn.textContent="Turn the page ➡️";
+        }
+        nextBtn.style.display="inline-block";
     }
-    nextBtn.onclick = e=>{
+        nextBtn.onclick = e => {
         e.preventDefault();
-        if (index<chapters.length -1){
-           page.classList.add("no-flip");
-           setTimeout(()=>{
-            index++;
-            renderChapter();
-            page.classList.remove("no-flip");
-           },600); 
+        const chapter=chapters[index];
+            const isLast=chapter.isFinal || index === chapters.length - 1;
+
+        if (isLast) {
+            const audio= document.getElementById("technoAudio");
+            audio?.play();
+            page.classList.add("glow");
+            return;   
+        }
+        if (index<chapters.length-1){
+            page.classList.remove("flip-back");
+            page.classList.add("flip");
+            setTimeout(() => {
+                index++;
+                renderChapter();
+                page.classList.remove("flip");
+            }, 600);    
+                
+
         }
     };
-    prevBtn.onclick = e=>{
-            e.preventDefault();
-            if (index>0){
-               page.classList.add("flip-back");
-               setTimeout(()=>{
+
+    prevBtn.onclick = e => {
+        e.preventDefault();
+        if (index > 0) {
+            page.classList.remove("flip");
+            page.classList.add("flip-back");
+
+            setTimeout(() => {
                 index--;
                 renderChapter();
                 page.classList.remove("flip-back");
-               },600);
-            }
-        };
+            }, 600);
+        }
+    };
+
     // beginbtn.onclick = (e) => {
     //     e.preventDefault();
     //     hide intro sections
@@ -99,3 +133,4 @@
 
     });
 </script>
+   

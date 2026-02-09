@@ -41,7 +41,8 @@ namespace BIrthday.Controllers
                 {
                     Id=4,
                     Title="And today...",
-                    Body=" This chapter is yours."
+                    Body=" This chapter is yours.",
+                    isFinal=true
                 },
 
                  new StoryChapter
@@ -52,8 +53,8 @@ namespace BIrthday.Controllers
                      Body="Not all kings wear crowns, but this one did \n"+
                      "Some carry kindness, humor, and quiet strength. \n\n"+
                      " and the coolest part about us, we both believe in the BLOOD FOR THE BLOOD GOD"+
-                     "Technoblade never dies.." 
-                    
+                     "Technoblade never dies.."
+
                  },
 
             };

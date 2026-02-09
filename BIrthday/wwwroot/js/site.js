@@ -1,23 +1,7 @@
 ﻿document.addEventListener("DOMContentLoaded", function ()=> {
-//    const reveals = document.querySelectorAll(".reveal");
-
-//    const observer = new IntersectionObserver(
-//        (entries) => {
-//    entries.forEach((entry) => {
-//        if (entry.isIntersecting) {
-//            entry.target.classList.add("visible");
-//        }
-//    });
-
-//    ),
-//    {
-//        threshold: 0.15,
-//    }
-//);
-    //    reveals.forEach(el => observer.observe(el));
 
     const canvas = document.getElementById("ambientCanvas");
-    const ctx = canvs..getCoontesxt("2d");
+    const ctx = canvas.getContext("2d");
     let w, h;
     function resize(){
     w=canvas.width = window.innerWidth;
@@ -29,10 +13,10 @@ resize();
 const particles = Array.from({ length: 50 }, () => ({
     x: Math.random() * w,
     y: Math.random() * h,
-    r: Math.random() * 1.5 + 0.5,
-    vx: (Math.random() - 0.5) * 0.2,
-    vy: (Math.random() - 0.5) * 0.2,
-    alpha: Math.random() * 0.5 + 0.2
+    r: Math.random() * 1.2 + 0.5,
+    vx: (Math.random() - 0.5) * 0.12,
+    vy: (Math.random() - 0.5) * 0.12,
+    alpha: Math.random() * 0.5 + 0.15
 }));
 
 function animate() {
@@ -54,3 +38,4 @@ function animate() {
 animate();
 
 });
+ 
