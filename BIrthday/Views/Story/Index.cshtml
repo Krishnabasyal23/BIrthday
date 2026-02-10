@@ -52,8 +52,9 @@
         System.Text.Json.JsonSerializer.Serialize(Model)
     );
     let index=0;
-    const titleE1=document.getElementById("chapter-title");
-    const bodyE1=document.getElementById("chapter-body");
+    const titleE1 = document.getElementById("chapter-title");
+    const bodyE1 = document.getElementById("chapter-body");
+
     const nextBtn=document.getElementById("nextBtn");
     const prevBtn=document.getElementById("prevBtn");
     // const beginbtn = document.getElementById("beginBook");
@@ -68,12 +69,14 @@
 
         titleE1.textContent= chapters[index].Title;
         bodyE1.innerHTML = chapters[index].Body.replace(/\n/g, "<br><br>");
+        // mood for css
+        doucment.body.dataset.mood= chapter.Mood || "cozy";
 
         const isFirst=index==0;
         const isLast=chapter.isFinal || index=== chapters.length-1;
 
         prevBtn.style.display=isFirst? "none": "inline-block";
-        nextBtn.style.display = index < chapters.length - 1 ? "inline-block" : "none";
+      // nextBtn.style.display = index < chapters.length - 1 ? "inline-block" : "none";
 
         if(isLast){
             nextBtn.textContent= "Play the surprise ✨";
