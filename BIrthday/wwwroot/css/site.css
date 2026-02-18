@@ -1,15 +1,25 @@
-html {
-  font-size: 14px;
+:root {
+    --bg: #0f1220;
+    --text-main: #e7e7ee;
+    --text-muted:#b6b6c9;
+    --accent:#8f96ff;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+body {
+    margin: 0;
+    padding: 0;
+    color: var(--text-main);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "segoe UI",sans-serif;
+    background-color: var(--bg);
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+main {
+    position: relative;
+    min-height: calc(100vh - 80px); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index:1;
 }
 
 .begin-link:hover {
@@ -40,15 +50,93 @@ p {
     z-index: 10;
 }
 
-body {
-  margin-bottom: 60px;
+.begin-link:hover {
+    text-decoration: underline;
+}
+h1 {
+    font-size: 2.3rem;
+    font-weight: 500;
+    margin-bottom: 20px;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 16px;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--text-muted);
+}
+
+.book {
+    position: relative;
+    max-width: 560px;
+    margin: 0 auto;
+    z-index: 10;
+}
+
+    .book::before {
+        content: "";
+        position: absolute;
+        inset: -20px;
+        background: radial-gradient( ellipse at center, rgba(143,150,255,0.08), transparent 99% );
+        z-index: -1;
+        filter: blur(1px);
+        pointer-events: none;
+    }
+
+
+.book-shadow {
+    position: relative;
+    inset: auto 0 -20px 0;
+    height: 40px;
+    background: radial-gradient( ellipse at center, rgba(0, 0, 0, 0.4), transparent 90% );
+    filter: blur(1px);
+    transition: transform 0.6s ease;
+    z-index: -20;
+}
+
+.page {
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    padding: 48px 32px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    transform-origin: left center;
+    transition: transform 0.6s ease;
+    animation: idleFloat 6s ease-in-out infinite;
+    max-width: 100%;
+}
+.page.flip{
+    transform: rotateY(-120deg);
+}
+.page.flip-back{
+    transform: rotateY(120deg);  
+}
+.page.glow{
+    box-shadow: 0 0 40px rgba(143,150,255,0.8);
+}
+
+@keyframes idleFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+#ambientCanvas{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+    opacity:0.1;
+}
+
+canvas{
+    display:none;
 }
