@@ -22,12 +22,32 @@ main {
     z-index:1;
 }
 
-.begin-link {
-    display: inline-block;
-    margin-top: 24px;
-    color: #9aa4ff;
-    text-decoration: none;
-    font-size: 0.95rem;
+.begin-link:hover {
+    text-decoration: underline;
+}
+h1 {
+    font-size: 2.3rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--text-muted);
+}
+
+.book {
+    position: relative;
+    max-width: 560px;
+    margin: 0 auto;
+    z-index: 10;
 }
 
 .begin-link:hover {
