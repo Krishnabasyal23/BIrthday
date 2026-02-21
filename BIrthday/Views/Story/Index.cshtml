@@ -47,6 +47,7 @@
     const chapters= @Html.Raw(
         System.Text.Json.JsonSerializer.Serialize(Model)
     );
+
     let index=0;
         const titleEl = document.getElementById("chapter-title");
         const bodyEl = document.getElementById("chapter-body");
@@ -58,7 +59,7 @@
             const chapter= chapters[index];
 
         titleEl.textContent= chapter.Title;
-        bodyEl .innerHTML = chapter.Body.replace(/\n/g, "<br><br>");
+        bodyEl= chapter.Body.replace(/\n/g, "<br><br>");
 
         //mood 
         document.body.dataset.mood=chapter.Mood||"cozy";

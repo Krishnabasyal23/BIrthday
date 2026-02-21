@@ -146,6 +146,10 @@ body[data-mood="reflective"] {
     --bg: #080b16;
     --accent: #a0b4ff;
 }
+body[data-mood="playful"] {
+    --bg: #0b1020;
+    --accent: #ffd1ff;
+}
 
 body[data-mood="tribute"] {
     --bg: #0a0410;
