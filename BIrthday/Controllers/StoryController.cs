@@ -12,7 +12,7 @@ namespace BIrthday.Controllers
                 new StoryChapter
                 {
                     Id=0,
-                    Title="yooo 🫡",
+                    Title="yooo",
                     Mood="calm",
                     Body= "This isn't just a webiste.\nIt's a small pause.\n A quiet moment before i reveal something dumb "
                 },

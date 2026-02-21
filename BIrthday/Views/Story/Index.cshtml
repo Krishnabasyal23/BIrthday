@@ -4,16 +4,17 @@
     ViewData["Title"] = "Story";
 }
 
- <section class="story-section reveal ">
+ @* <section class="story-section reveal ">
     <h1> A small Journey Begins</h1>
-    <p> This was made just for you ( also for my learning purposes 🥹🥹)</p>
-    <a href="#" id="beginBook" class="begin-link">Begin</a> 
+    <p> This was made just for you ( also for my learning purposes 🥹🥹)</p> *@
 
    @*
 </section>
 <section class="story-section reveal">
     <h2> A quiet moment</h2>
     <p> 
+
+
         some stories dont start loudly,
         They start with curiosity, kindness, courage 
         and boring day at student life wait table
@@ -47,43 +48,80 @@
         System.Text.Json.JsonSerializer.Serialize(Model)
     );
     let index=0;
-    const titleE1=document.getElementById("chapter-title");
-    const bodyE1=document.getElementById("chapter-body");
-    const nextBtn=document.getElementById("nextBtn");
-    const prevBtn=document.getElementById("prevBtn");
-    // const beginbtn = document.getElementById("beginBook");
-    // const introSections= document.querySelectorAll(".story-section:not(#book-chapter)");
-    const bookSection=document.getElementById("book-chapter");
-    const page=document.querySelector(".page");
-
+        const titleEl = document.getElementById("chapter-title");
+        const bodyEl = document.getElementById("chapter-body");
+        const nextBtn = document.getElementById("nextBtn");
+        const prevBtn = document.getElementById("prevBtn");
+        const bookSection = document.getElementById("book-chapter");
+        const page = document.querySelector(".page");
     function renderChapter(){
-        titleE1.textContent= chapters[index].Title;
-        bodyE1.innerHTML = chapters[index].Body.replace(/\n/g, "<br><br>");
-        prevBtn.style.display=index>0?"inline-block": "none";
-        nextBtn.style.display = index < chapters.length - 1 ? "inline-block" : "none";
+            const chapter= chapters[index];
+
+        titleEl.textContent= chapter.Title;
+        bodyEl .innerHTML = chapter.Body.replace(/\n/g, "<br><br>");
+
+        //mood 
+        document.body.dataset.mood=chapter.Mood||"cozy";
+
+        const isFirst= index ===0;
+        const isLastMain= chapter.isFinal|| index === chapters.length -1;
+
+        // prev visibitlity
+        prevBtn.style.display= isFirst?"none": "inline-block";
+
+        if (isLastMain){
+                nextBtn.textContent="Play the surprise ";
+        }
+        else{
+                nextBtn.textContent="Turn the page ➡️";  
+
+        }
+        nextBtn.style.display = "inline-block";
     }
-    nextBtn.onclick = e=>{
+
+
+        nextBtn.onclick = e => {
         e.preventDefault();
-        if (index<chapters.length -1){
-           page.classList.add("flip");
-           setTimeout(()=>{
-            index++;
-            renderChapter();
-            page.classList.remove("flip");
-           },600); 
+
+        const chapter = chapters[index];
+        const isLastMain = chapter.isFinal || index === chapters.length - 1;
+
+        if (isLastMain) {
+            const audio = document.getElementById("technoAudio");
+            if (audio) audio.play();
+            page.classList.add("glow");
+            setTimeout(() => {
+                page.classList.remove("glow");
+            }, 4000);
+            return;
+        }
+
+        if (index < chapters.length - 1) {
+            page.classList.remove("flip-back");
+            page.classList.add("flip");
+
+            setTimeout(() => {
+                index++;
+                renderChapter();
+                page.classList.remove("flip");
+            }, 600);
         }
     };
-    prevBtn.onclick = e=>{
-            e.preventDefault();
-            if (index>0){
-               page.classList.add("flip-back");
-               setTimeout(()=>{
+
+    prevBtn.onclick = e => {
+        e.preventDefault();
+        if (index > 0) {
+            page.classList.remove("flip");
+            page.classList.add("flip-back");
+
+            setTimeout(() => {
                 index--;
                 renderChapter();
                 page.classList.remove("flip-back");
-               },600);
-            }
-        };
+            }, 600);
+        }
+    };
+
     // beginbtn.onclick = (e) => {
     //     e.preventDefault();
     //     hide intro sections
