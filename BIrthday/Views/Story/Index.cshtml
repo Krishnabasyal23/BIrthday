@@ -3,50 +3,24 @@
  @{
     ViewData["Title"] = "Story";
 }
-
- @* <section class="story-section reveal ">
-    <h1> A small Journey Begins</h1>
-    <p> This was made just for you ( also for my learning purposes 🥹🥹)</p> *@
-
-   @*
-</section>
-<section class="story-section reveal">
-    <h2> A quiet moment</h2>
-    <p> 
-
-
-        some stories dont start loudly,
-        They start with curiosity, kindness, courage 
-        and boring day at student life wait table
-    </p>
-</section>
-<section class=" story-section reveal">
-    <h2> Another chapter</h2>
-    <p>
-        Today isnt about big fireworks(broke).
-        its about celebrating the way you exist
-        and flexing my coding muscles.
-    </p>
-</section>    *@
 <section class="story-section reveal">
     <h1>A small journey begins</h1>
     <p>This was made just for you (also for my learning purposes 🥹).</p>
 </section>
 
-
 <section id="book-chapter">
     <div class="book">
         <div class="page">
-    <h2 id="chapter-title"></h2>
-    <p id="chapter-body"></p>
-    <div class="nav-links" style="margin-top:24px;">
-        <a href="#" id="prevBtn" class="begin-link" style="display:none;"> ⬅️Go back </a>
-        <a href="#" id="nextBtn" class="begin-link"> Turn the page ➡️</a>
-    </div>
+            <h2 id="chapter-title"></h2>
+            <p id="chapter-body"></p>
+            <div class="nav-links" style="margin-top:24px;">
+                <a href="#" id="prevBtn" class="begin-link" style="display:none;">⬅️ Go back</a>
+                <a href="#" id="nextBtn" class="begin-link">Turn the page ➡️</a>
+            </div>
         </div>
-    </div>  
+    </div>
     <audio id="technoAudio" src="/audio/technoblade-birthday.mp3"></audio>
-    </section>
+</section>
 <script>
     document.addEventListener("DOMContentLoaded", () =>{
     const chapters= @Html.Raw(
