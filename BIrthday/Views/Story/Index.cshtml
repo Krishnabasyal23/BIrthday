@@ -9,18 +9,26 @@
 </section>
 
 <section id="book-chapter">
-    <div class="book">
-        <div class="page">
-            <h2 id="chapter-title"></h2>
-            <p id="chapter-body"></p>
-            <div class="nav-links" style="margin-top:24px;">
-                <a href="#" id="prevBtn" class="begin-link" style="display:none;">⬅️ Go back</a>
-                <a href="#" id="nextBtn" class="begin-link">Turn the page ➡️</a>
+    <div class="book-shell">
+        <div class="book">
+            <div class="book-shape">
+                <div class="book-inner">
+                    <div class="page">
+                        <h2 id="chapter-title"></h2>
+                        <p id="chapter-body"></p>
+                        <div class="nav-links" style="margin-top:24px;">
+                            <a href="#" id="prevBtn" class="begin-link" style="display:none;">⬅️ Go back</a>
+                            <a href="#" id="nextBtn" class="begin-link">Turn the page ➡️</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
     <audio id="technoAudio" src="/audio/technoblade-birthday.mp3"></audio>
 </section>
+
 <script>
     document.addEventListener("DOMContentLoaded", () =>{
     const chapters= @Html.Raw(
