@@ -27,10 +27,11 @@ main {
 }
 .story-section {
     max-width: 540px;
-    margin: 0 auto 120px auto;
+    margin: 0 auto 40px auto;
     text-align: center;
     padding: 0 20px;
 }
+
 
 .story-section h1,
 .story-section h2 {
@@ -49,7 +50,7 @@ main {
 .begin-link {
     display: inline-block;
     margin-top: 24px;
-    color: #9aa4ff;
+    color: var(--accent);
     text-decoration: none;
     font-size: 0.95rem;
     position: relative;
@@ -69,7 +70,7 @@ main {
     }
 
 .begin-link:hover {
-    color: var(--accent);
+    color: #ffffff;
     transform: translateY(-1px);
 }
 h1 {
@@ -111,15 +112,16 @@ p {
     perspective: 1200px;
 }
 
-.book::before {
-    content: "";
-    position: absolute;
-    inset: -32px;
-    border-radius: 32px;
-    background: radial-gradient(circle at center, rgba(143,150,255,0.22), transparent 70%);
-    filter: blur(8px);
-    z-index: -1;
-}
+    .book::before {
+        content: "";
+        position: absolute;
+        inset: -32px;
+        border-radius: 32px;
+        background: radial-gradient(circle at center, rgba(143,150,255,0.22), transparent 70%), 
+            radial-gradient(circle at center, rgba(143,150,255,0.25), transparent 70%);
+        filter: blur(8px);
+        z-index: -1;
+    }
 
 .page {
     background: rgba(255,255,255,0.03);
@@ -148,26 +150,26 @@ body [data-mood= "intro"] {
     --accent: #8f96ff;
 }
 body[data-mood="cozy"] {
-    --bg: #0c0f1a;
+    --bg: #0b0f1d;
     --accent: #ffb3d9;
 }
 
 body[data-mood="reflective"] {
-    --bg: #080b16;
+    --bg: #070b18;
     --accent: #a0b4ff;
 }
 body[data-mood="playful"] {
-    --bg: #0b1020;
+    --bg: #10142a;
     --accent: #ffd1ff;
 }
 
 body[data-mood="tribute"] {
-    --bg: #0a0410;
+    --bg: #090414;
     --accent: #ff4f9a;
 }
 
 body[data-mood="celebration"] {
-    --bg: #110820;
+    --bg: #140b24;
     --accent: #ffe680;
 }
 
@@ -183,4 +185,29 @@ body[data-mood="celebration"] {
 
 .book:hover .page {
     box-shadow: 0 24px 50px rgba(0,0,0,0.55);
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.page h2#chapter-title {
+    font-size: 1.9rem;
+    margin-bottom: 16px;
+    text-align: center;
+    color: var(--text-main);
+}
+
+body[data-mood="celebration"] .page h2#chapter-title,
+body[data-mood="playful"] .page h2#chapter-title {
+    color: var(--accent);
+}
+
+.page p#chapter-body {
+    text-align: center;
+    max-width: 34rem;
+    margin: 0 auto;
 }

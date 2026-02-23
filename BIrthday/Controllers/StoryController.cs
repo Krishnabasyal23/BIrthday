@@ -85,7 +85,7 @@ namespace BIrthday.Controllers
                       Body="Today isn't about big fireworks (broke). \n"+
                       "It's about celebrating the way you exist, \n"+
                       " and flexing my coding muscles just a little",
-                      isFinal=true
+                      //isFinal=true
                   },
                  new StoryChapter
                  {
@@ -107,7 +107,8 @@ namespace BIrthday.Controllers
                     Mood="celebration",
                     Body=" Happy Birthdya, NERDDDDDD\n"+
                     "You are a legendary Pokemon level meance\n"+
-                    "Don't hit me please, I actually tired with this"
+                    "Don't hit me please, I actually tired with this",
+                    isFinal=true
                 },
 
             };
