@@ -15,31 +15,62 @@ namespace BIrthday.Controllers
                     Title="yooo 0/",
                     Mood="intro",
                     Body= "This isn't just a webiste.\nIt's a small pause.\n A quiet moment before i reveal something dumb "
+
+
                 },
                 new StoryChapter
                 {
                     Id=1,
                     Title="A small journey begins",
-                    Mood="intro",
-                    Body= " This was made just for you. \n"+ "(Also for my learning purposes, so please dont bonk"
+                    Body= "This was made just for you \n (also for my learning purposes )",
+                    Mood="cozy",
+                    isFinal=false
                 },
                 new StoryChapter
                 {
                     Id=2,
                     Title="A quiet chapter",
                     Mood="reflective",
-                    Body="For someone who moves through the world with kindness, curiosity, \n and aspires to a pishachini"
+                    Body="For someone who moves through the world with kindness, curiosity and aspires to a pishachini"
                 },
                 new StoryChapter
                 {
                     Id=3,
-                    Title="Seat at the table",
-                    Mood="cozy",
-                    Body="Some stories don't start loudly \n" +
-                    "They start at a boring day at student life wait table \n"+
-                    "some dont announce themselves loudly, \n but you  you yap a lot"
+                    Title = "A quiet moment",
+                    Body = "Some stories don't start loudly.\nThey start with curiosity, kindness, courage,\nand a boring day at the student life wait table.",
+                    Mood = "cozy",
+                    isFinal = false
+                },
 
+                new StoryChapter
+                {
+                    Id=4,
+                    Title="Some people carry stories gently",
+                    Mood="reflective",
+                    Body="For someone who moves through the world with kindness, curiosity, \n and aspires to a pishachini"
+                },
+                 new StoryChapter
+                 {
+                     Id=5,
+                     Title= "Another Chapter",
+                     Body="Today is not about big fireworks (broke) \n It's about celebrating the way you exist \n and flexign my coding muscles. ",
+                     Mood="soft-final"
+                 },
 
+                 new StoryChapter
+                 {
+                     Id=6,
+                     Title="You once gave me a book",
+                     Mood="warm",
+                     Body="A story about finding light where none should exist "
+                 },
+                new StoryChapter
+                {
+                    Id=7,
+                    Mood= "reflective",
+                    Title="And today...",
+                    Body=" This chapter is yours.",
+                    isFinal= true
                 },
                  new StoryChapter
                  {
@@ -94,22 +125,17 @@ namespace BIrthday.Controllers
                      Mood="tribute",
                      Body="Not all kings wear crowns, but this one did \n"+
                      "Some carry kindness, humor, and quiet strength. \n\n"+
-                     " and the coolest part about us?\n we both believe in BLOOD FOR THE BLOOD GOD \n"+
+                     " and the coolest part about us, we both believe in the BLOOD FOR THE BLOOD GOD"+
                      "Technoblade never dies.."
 
                  },
-
-
                  new StoryChapter
-                {
-                    Id=99,
-                    Title="Happy Birthday",
-                    Mood="celebration",
-                    Body=" Happy Birthdya, NERDDDDDD\n"+
-                    "You are a legendary Pokemon level meance\n"+
-                    "Don't hit me please, I actually tired with this"
-                },
-
+                 {
+                     Id= 99,
+                     Title="Happy birthday ",
+                     Mood="Celebration",
+                     Body= "Happy birthday NERDDDDDDD"
+                 },
             };
 
             return View(chapters);
