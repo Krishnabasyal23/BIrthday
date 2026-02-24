@@ -14,6 +14,8 @@
 <section class="story-section reveal">
     <h2> A quiet moment</h2>
     <p> 
+
+
         some stories dont start loudly,
         They start with curiosity, kindness, courage 
         and boring day at student life wait table
@@ -64,6 +66,13 @@
 
     const page=document.querySelector(".page");
 
+    let index=0;
+        const titleEl = document.getElementById("chapter-title");
+        const bodyEl = document.getElementById("chapter-body");
+        const nextBtn = document.getElementById("nextBtn");
+        const prevBtn = document.getElementById("prevBtn");
+        const bookSection = document.getElementById("book-chapter");
+        const page = document.querySelector(".page");
     function renderChapter(){
         const chapter = chapters[index];
 

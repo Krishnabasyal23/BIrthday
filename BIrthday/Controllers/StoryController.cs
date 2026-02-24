@@ -12,8 +12,8 @@ namespace BIrthday.Controllers
                 new StoryChapter
                 {
                     Id=0,
-                    Title="yooo 🫡",
-                    Mood="calm",
+                    Title="yooo 0/",
+                    Mood="intro",
                     Body= "This isn't just a webiste.\nIt's a small pause.\n A quiet moment before i reveal something dumb "
 
 
@@ -47,7 +47,7 @@ namespace BIrthday.Controllers
                     Id=4,
                     Title="Some people carry stories gently",
                     Mood="reflective",
-                    Body="They dont announce themselves loudly, but you /n you yap a lot"
+                    Body="For someone who moves through the world with kindness, curiosity, \n and aspires to a pishachini"
                 },
                  new StoryChapter
                  {
@@ -72,7 +72,52 @@ namespace BIrthday.Controllers
                     Body=" This chapter is yours.",
                     isFinal= true
                 },
+                 new StoryChapter
+                 {
+                     Id=4,
+                     Title="Some people carry stories gently",
+                     Mood="reflective",
+                     Body=" Probably cause they got amazing biceps\n"+
+                     "They listen, they remember(🐟) and then threaten to beat you"
 
+                 },
+                  new StoryChapter
+                 {
+                     Id=6,
+                     Title="Chef arc unlocked",
+                     Mood="cozy",
+                     Body="you cook great 👍"
+
+                 },
+                  new StoryChapter
+                  {
+                      Id=7,
+                      Title="If life was a game",
+                      Mood="Playful",
+                      Body="Youd be the S-tier who says they're bad \n but carries the whole squad."
+                      +"\n but also threatens to log off and bonk everyone"
+                  },
+                  new StoryChapter
+                  {
+                      Id=8,
+                      Title="A wile day appears",
+                      Mood= "playful",
+                      Body="If you were a pokemon \n"+
+                      "You'd be a rare spawn with maxed out sass and kindness"+
+                      "10/10 would catch again. \n"
+
+                  },
+
+                  new StoryChapter
+                  {
+                      Id=9,
+                      Title= "And Today....",
+                      Mood="cozy",
+                      Body="Today isn't about big fireworks (broke). \n"+
+                      "It's about celebrating the way you exist, \n"+
+                      " and flexing my coding muscles just a little",
+                      isFinal=true
+                  },
                  new StoryChapter
                  {
                      Id=20,
