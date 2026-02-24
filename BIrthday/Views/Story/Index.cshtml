@@ -5,11 +5,12 @@
 }
 <section class="story-section reveal">
     <h1>A small journey begins</h1>
-    <p>This was made just for you (also for my learning purposes 🥹).</p>
+    <p> Just a tiny story, About you obviously</p>
 </section>
 
 <section id="book-chapter">
     <div class="book-shell">
+        <div class="book-shell-platfrom"></div>
         <div class="book">
             <div class="book-shape">
                 <div class="book-inner">
@@ -26,7 +27,7 @@
         </div>
     </div>
 
-    <audio id="technoAudio" src="/audio/technoblade-birthday.mp3"></audio>
+    <audio id="technoAudio" src="/audio/technoAudio.MP3"></audio>
 </section>
 
 <script>
@@ -59,6 +60,7 @@
 
         if (isLastMain){
                 nextBtn.textContent="Play the surprise ";
+                nextBtn.classList.add("final-cta");
         }
         else{
                 nextBtn.textContent="Turn the page ➡️";  
@@ -110,13 +112,6 @@
         }
     };
 
-    // beginbtn.onclick = (e) => {
-    //     e.preventDefault();
-    //     hide intro sections
-    //     introSections.forEach(s => s.style.display = "none");
-    //     bookSection.style.display = "block";
-    //     renderChapter();
-    // };
     
     renderChapter();
       bookSection.scrollIntoView({behavior:"smooth", block: "center"});

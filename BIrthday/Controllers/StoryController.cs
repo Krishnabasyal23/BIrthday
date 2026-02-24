@@ -21,7 +21,8 @@ namespace BIrthday.Controllers
                     Id=1,
                     Title="A small journey begins",
                     Mood="intro",
-                    Body= " This was made just for you. \n"+ "(Also for my learning purposes, so please dont bonk"
+                    Body= " This was made just for you. \n"+ "(Also for my learning purposes),\n" +
+                    "Don't hit me please, I actually tired with this",
                 },
                 new StoryChapter
                 {
@@ -105,9 +106,9 @@ namespace BIrthday.Controllers
                     Id=99,
                     Title="Happy Birthday",
                     Mood="celebration",
-                    Body=" Happy Birthdya, NERDDDDDD\n"+
-                    "You are a legendary Pokemon level meance\n"+
-                    "Don't hit me please, I actually tired with this",
+                    Body=" Happy Birthday, NERDDDDDD\n"+
+                    "You are a Mythical Meance\n",
+                   
                     isFinal=true
                 },
 
