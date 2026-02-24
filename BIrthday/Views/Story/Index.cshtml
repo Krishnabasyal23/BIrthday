@@ -3,48 +3,33 @@
  @{
     ViewData["Title"] = "Story";
 }
-
- @* <section class="story-section reveal ">
-    <h1> A small Journey Begins</h1>
-    <p> This was made just for you ( also for my learning purposes 🥹🥹)</p>
-    <a href="#" id="beginBook" class="begin-link">Begin</a>  *@
-
-   @*
-</section>
 <section class="story-section reveal">
-    <h2> A quiet moment</h2>
-    <p> 
-
-
-        some stories dont start loudly,
-        They start with curiosity, kindness, courage 
-        and boring day at student life wait table
-    </p>
+    <h1>A small journey begins</h1>
+    <p> Just a tiny story, About you obviously</p>
 </section>
-<section class=" story-section reveal">
-    <h2> Another chapter</h2>
-    <p>
-        Today isnt about big fireworks(broke).
-        its about celebrating the way you exist
-        and flexing my coding muscles.
-    </p>
-</section>    *@
 
 
 
 <section id="book-chapter">
-    <div class="book">
-        <div class="page">
-            <h2 id="chapter-title" aria-live="polite"></h2>
-            <p id="chapter-body" aria-live="polite"></p>
-            <div style="margin-top:24px;">
-                <a href="#" id="prevBtn" class="begin-link" style="display:none;">⬅️ Go back</a>
-                <a href="#" id="nextBtn" class="begin-link">Turn the page ➡️</a>
+    <div class="book-shell">
+        <div class="book-shell-platfrom"></div>
+        <div class="book">
+            <div class="book-shape">
+                <div class="book-inner">
+                    <div class="page">
+                        <h2 id="chapter-title"></h2>
+                        <p id="chapter-body"></p>
+                        <div class="nav-links" style="margin-top:24px;">
+                            <a href="#" id="prevBtn" class="begin-link" style="display:none;">⬅️ Go back</a>
+                            <a href="#" id="nextBtn" class="begin-link">Turn the page ➡️</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="book-shadow"></div>
     </div>
-    <audio id="technoAudio" src="/audio/technoblade-birthday.mp3"></audio>
+
+    <audio id="technoAudio" src="/audio/technoAudio.MP3"></audio>
 </section>
 
 <script>
@@ -74,7 +59,13 @@
         const bookSection = document.getElementById("book-chapter");
         const page = document.querySelector(".page");
     function renderChapter(){
-        const chapter = chapters[index];
+            const chapter= chapters[index];
+
+    titleEl.textContent= chapter.Title;
+    bodyEl.innerHTML = chapter.Body.replace(/\n/g, "<br><br>");
+
+        //mood 
+        document.body.dataset.mood=chapter.Mood||"cozy";
 
         titleE1.textContent= chapters[index].Title;
         bodyE1.innerHTML = chapters[index].Body.replace(/\n/g, "<br><br>");
@@ -84,8 +75,12 @@
         const isFirst=index==0;
         const isLast=chapter.isFinal || index=== chapters.length-1;
 
-        prevBtn.style.display=isFirst? "none": "inline-block";
-      // nextBtn.style.display = index < chapters.length - 1 ? "inline-block" : "none";
+        if (isLastMain){
+                nextBtn.textContent="Play the surprise ";
+                nextBtn.classList.add("final-cta");
+        }
+        else{
+                nextBtn.textContent="Turn the page ➡️";  
 
         if(isLast){
             nextBtn.textContent= "Play the surprise ✨";
@@ -132,13 +127,6 @@
         }
     };
 
-    // beginbtn.onclick = (e) => {
-    //     e.preventDefault();
-    //     hide intro sections
-    //     introSections.forEach(s => s.style.display = "none");
-    //     bookSection.style.display = "block";
-    //     renderChapter();
-    // };
     
     renderChapter();
       bookSection.scrollIntoView({behavior:"smooth", block: "center"});

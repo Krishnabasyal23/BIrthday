@@ -22,9 +22,9 @@ namespace BIrthday.Controllers
                 {
                     Id=1,
                     Title="A small journey begins",
-                    Body= "This was made just for you \n (also for my learning purposes )",
-                    Mood="cozy",
-                    isFinal=false
+                    Mood="intro",
+                    Body= " This was made just for you. \n"+ "(Also for my learning purposes),\n" +
+                    "Don't hit me please, I actually tired with this",
                 },
                 new StoryChapter
                 {
@@ -116,7 +116,7 @@ namespace BIrthday.Controllers
                       Body="Today isn't about big fireworks (broke). \n"+
                       "It's about celebrating the way you exist, \n"+
                       " and flexing my coding muscles just a little",
-                      isFinal=true
+                      //isFinal=true
                   },
                  new StoryChapter
                  {
@@ -130,12 +130,16 @@ namespace BIrthday.Controllers
 
                  },
                  new StoryChapter
-                 {
-                     Id= 99,
-                     Title="Happy birthday ",
-                     Mood="Celebration",
-                     Body= "Happy birthday NERDDDDDDD"
-                 },
+                {
+                    Id=99,
+                    Title="Happy Birthday",
+                    Mood="celebration",
+                    Body=" Happy Birthday, NERDDDDDD\n"+
+                    "You are a Mythical Meance\n",
+                   
+                    isFinal=true
+                },
+
             };
 
             return View(chapters);

@@ -8,32 +8,29 @@
 </head>
 <body>
     <canvas id="ambientCanvas"></canvas>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-dark border-bottom box-shadow mb-3"
-             style="background-color: #0f1220;">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Story" asp-action="Index">BIrthday</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    
-        <main role="main">
-            @RenderBody()
-        </main>
+
+
+    <svg width="0" height="0" aria-hidden="true" focusable="false">
+        <clipPath id="book-clip" clipPathUnits="objectBoundingBox">
+            <path d="
+      M 0.02,0.05
+      Q 0.02,0.00 0.10,0.02
+      Q 0.25,0.05 0.38,0.03
+      Q 0.50,0.01 0.50,0.10
+      Q 0.50,0.01 0.62,0.03
+      Q 0.75,0.05 0.90,0.02
+      Q 0.98,0.00 0.98,0.05
+      L 0.98,0.82
+      Q 0.75,0.88 0.50,0.94
+      Q 0.25,0.88 0.02,0.82
+      Z"
+    />
+        </clipPath>
+    </svg>
+
+    <main role="main" class="story-container">
+        @RenderBody()
+    </main>
 
     <footer class="border-top footer text-muted">
         <div class="container">
